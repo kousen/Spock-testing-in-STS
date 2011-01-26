@@ -1,0 +1,26 @@
+apply plugin:'groovy'
+apply plugin:'eclipse'
+
+repositories {
+	mavenCentral()
+}
+
+sourceSets {
+  	main {
+    	java { srcDirs = [] }
+    	groovy { srcDir 'src' }
+  	}
+  	test {
+    	java { srcDirs = [] }
+    	groovy { srcDir 'tests' }
+  	}
+}
+
+def spockVersion = '0.4-groovy-1.7'
+
+dependencies {
+  	groovy 'org.codehaus.groovy:groovy-all:1.7.5'
+	
+  	testCompile 'junit:junit:4.8.1'
+  	testCompile "org.spockframework:spock-core:$spockVersion"
+}
